@@ -1,0 +1,398 @@
+; Configuration parameters that control the scraping process. You will most
+; likely want to change these values.
+
+[DEFAULT]
+
+; Language to search results
+default_language = ru
+
+; Timeout to wait http-response
+default_timeout = 10.0
+
+; Pause between parsing body tags
+default_pause = 0.01
+
+; Count of scraping pages
+default_count = 100
+
+; Depth of the links
+default_depth = 5
+
+; Min rating of a valid page
+default_threshold = 100
+
+; Search engines: ABGHMRY, Ask|Bing|yaHoo|Google|Mail|Rambler|Yandex
+default_engines = ABHGRY
+
+; BeautifulSoup HTML parser
+default_html_parser = html.parser
+
+; TOP mode
+default_top = no
+
+; Append output data by default
+default_output_valid = no
+
+; Date From in days
+default_date_from_delta = 30
+
+; Font family for form controls
+default_font_family = Arial
+
+; Font size for form controls
+default_font_size = 11
+
+; Font color for form controls (r,g,b)
+default_font_color = 20:20:20
+
+; Font size for edit data controls: textFromName:textToName:textToAddress:textManager
+default_controls_font_size = 11:11:11:13
+
+; Output full datetime template
+FULL_TIMESTAMP = %Y-%m-%d %H:%M:%S
+
+; Output spent time template
+SPENT_TIMESTAMP = %H:%M:%S:%f
+
+; Output easy datetime template
+LOCAL_EASY_TIMESTAMP = %d-%m-%Y %H:%M
+
+; UTC datetime template
+UTC_EASY_TIMESTAMP = %Y-%m-%d %H:%M
+
+; Short date template
+DATE_TIMESTAMP = %d/%m
+
+; Delimeter for query parts
+query_delimeter = ::
+
+; Width of one symbol for GUI labels
+const_width_symbol = 6
+
+; Min length of word in a search query (+1 and more)
+const_min_word_len = 0
+
+; Exclude words in the query
+query_exc_words = гдк
+
+[GLOBAL]
+
+; Set the debug level of the application. Must be an integer.
+; CRITICAL = 50
+; FATAL = CRITICAL
+; ERROR = 40
+; WARNING = 30
+; WARN = WARNING
+; INFO = 20
+; DEBUG = 10
+; NOTSET = 0
+debug : INFO
+
+; Cookies folder
+cookies_folder = ./cookies
+
+; Forced cookies random choice option: yes/no
+cookies_random = yes
+
+; Page agent: 0..., -1 is random
+page_agent = -1
+
+; Optional keyword rating
+optional_rating = 20
+
+; Valid address rating
+address_rating = 9
+
+; Valid manager rating
+manager_rating = 4
+
+; Manager selection mode: keywords/fio
+manager_pickup_scheme = fio
+
+; Max depth of tags in web-page body content
+html_nesting_limit = 500
+
+; Max tags count
+html_tags_limit = 3000
+
+; Weight for high domains (% difference between nodes)
+high_weight_domain = 10
+
+; Max time for html reading and BS parsing in sec
+parsing_time_limit = 10
+
+; Max time for html loading & parsing in sec
+spended_time_limit = 30
+
+; Max enabled size of html-content (bytes)
+max_html_size = 2048000
+
+; Timeout for proxy requests connect
+requests_timeout_connect = 7.05
+
+; Timeout for proxy requests read
+requests_timeout_read = 15.0
+
+[SELENIUM]
+
+; Selenium mode enabled
+enabled = yes
+
+; Selenium auto mode enabled
+auto = no
+
+; Page rating threshold to use Selenium mode
+rating = 999
+
+; Pause before start Selenium mode
+pause = 1.0
+
+; Selenium log
+log = /tmp/selenium.log
+
+[ASK]
+
+; Alias
+alias = ask
+
+; Domain
+domain = com
+
+; Start search from
+start = 1
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = http://www.ask.com/web?
+
+; Type of search query
+search_string = simple
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = class:web-results, class:l-right-content
+
+; Parent container tag
+parent = h2
+
+[BING]
+
+; Alias
+alias = bing
+
+; Domain
+domain = ru
+
+; Start search from
+start = 1
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = http://www.bing.com/search?
+
+; Type of search query
+search_string = simple-plus
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = id:b_results
+
+; Parent container tag
+parent = h2
+
+[GOOGLE]
+
+; Alias
+alias = google
+
+; Domain
+domain = ru
+
+; Start search from
+start = 0
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = lxml
+
+; Base search url
+search_url = https://www.google.com/search?
+
+; Type of search query
+search_string = google-full
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = id:search
+
+; Parent container tag
+parent = h3
+
+; Navigator container tag id
+nav = nav
+
+[MAIL]
+
+; Alias
+alias = mail
+
+; Domain
+domain = ru
+
+; Start search from
+start = 0
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = http://go.mail.ru/search?
+
+; Type of search query
+search_string = full
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = id:js-result
+
+; Parent container tag
+parent = h3
+
+; Navigator container tag id
+nav = js-bottomBlock
+
+[RAMBLER]
+
+; Alias
+alias = rambler
+
+; Domain
+domain = ru
+
+; Start search from
+start = 0
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = http://nova.rambler.ru/search?
+
+; Type of search query
+search_string = no-digits
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = class:b-serp-list
+
+; Parent container tag
+parent = h2
+
+[YAHOO]
+
+; Alias
+alias = yahoo
+
+; Domain
+domain = com
+
+; Start search from
+start = 1
+
+; Count of links
+stop = 10
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = https://search.yahoo.com/search?
+
+; Type of search query
+search_string = simple-plus
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = id:web
+
+; Parent container tag
+parent = h3
+
+[YANDEX]
+
+; Alias
+alias = yandex
+
+; Domain
+domain = ru
+
+; Start search from
+start = 0
+
+; Count of links
+stop = 20
+
+; BeautifulSoup HTML parser
+html_parser = html.parser
+
+; Base search url
+search_url = http://www.yandex.ru/search?
+
+; Type of search query
+search_string = full
+
+; Timeout to wait response
+timeout = 10.0
+
+; Tags attrs collection to scrape the links delimetered by ':'
+tags = class:serp-list
+
+; Parent container tag
+parent = h2
+
+[OUTPUT]
+
+; Folder contains outputs
+output_folder = output
+
+; Folder contains dumps
+dump_folder = data
+
+; Temp folder
+tmp_folder = tmp
+
+; Log folder
+log_folder = log
+
+; Dumps to upload
+upload_folder = download
