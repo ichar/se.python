@@ -12,3 +12,5 @@ yahoo
 yandex
 
 requirements.txt
+
+screenshots: https://drive.google.com/drive/folders/1J0kvyf2PN65VO1wLvDXqjY4NsLmY3zqQ
